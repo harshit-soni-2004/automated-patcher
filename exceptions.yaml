@@ -1,0 +1,68 @@
+# Initial non-OS exceptions for the AlmaLinux golden AMI.
+# Valid through the review_by date. CRITICAL findings must be explicit CVE ids.
+# A wildcard covers only the given path, and only up to severity HIGH.
+# approved_by is "unassigned" until a named owner accepts the exception.
+
+exceptions:
+  - cve: CVE-2024-24790
+    severity: CRITICAL
+    target: opt/aws/bin/eic_run_authorized_keys
+    component: ec2-instance-connect
+    reason: AWS-shipped Go binary. ec2-instance-connect-2.0.0-1 is the latest published RPM and still contains this CVE.
+    approved_by: unassigned
+    added: 2026-10-12
+    review_by: 2026-11-12
+
+  - cve: CVE-2025-68121
+    severity: CRITICAL
+    target: opt/aws/bin/eic_run_authorized_keys
+    component: ec2-instance-connect
+    reason: AWS-shipped Go binary. ec2-instance-connect-2.0.0-1 is the latest published RPM and still contains this CVE.
+    approved_by: unassigned
+    added: 2026-10-12
+    review_by: 2026-11-12
+
+  - cve: CVE-2024-24790
+    severity: CRITICAL
+    target: opt/aws/inspector/bin/inspectorssmplugin
+    component: amazon-inspector-ssm-plugin
+    reason: AWS-shipped Go binary. inspectorssmplugin-1.0.201-1 is installed by Systems Manager and still contains this CVE.
+    approved_by: unassigned
+    added: 2026-10-12
+    review_by: 2026-11-12
+
+  - cve: CVE-2025-68121
+    severity: CRITICAL
+    target: opt/aws/inspector/bin/inspectorssmplugin
+    component: amazon-inspector-ssm-plugin
+    reason: AWS-shipped Go binary. inspectorssmplugin-1.0.201-1 is installed by Systems Manager and still contains this CVE.
+    approved_by: unassigned
+    added: 2026-10-12
+    review_by: 2026-11-12
+
+  - cve: "*"
+    severity: HIGH
+    target: opt/aws/bin/eic_run_authorized_keys
+    component: ec2-instance-connect
+    reason: Remaining HIGH findings are in the same AWS Go binary. dnf cannot replace it.
+    approved_by: unassigned
+    added: 2026-10-12
+    review_by: 2026-11-12
+
+  - cve: "*"
+    severity: HIGH
+    target: opt/aws/inspector/bin/inspectorssmplugin
+    component: amazon-inspector-ssm-plugin
+    reason: Remaining HIGH findings are in the Inspector SSM plugin. AWS updates it through Systems Manager.
+    approved_by: unassigned
+    added: 2026-10-12
+    review_by: 2026-11-12
+
+  - cve: "*"
+    severity: HIGH
+    target: var/lib/amazon/ssm/update/*/updater
+    component: amazon-ssm-agent
+    reason: HIGH findings in the SSM agent updater binary shipped with amazon-ssm-agent-3.3.5390.0.
+    approved_by: unassigned
+    added: 2026-10-12
+    review_by: 2026-11-12

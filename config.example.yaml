@@ -1,0 +1,33 @@
+
+region: ap-south-1
+account_id: "469606549419"
+
+source_ami: ami-00253d81e1c983f9e
+
+new_ami_name_prefix: personal-ubuntu-scan
+instance_type: t3.micro
+
+subnet_id: subnet-054dd4d7530fb56bf
+security_group_id: sg-0cb73d18ee4fa17ab
+instance_profile_name: ami-patcher-instance-role
+
+s3_bucket: ami-patcher-personal-469606549419-2026
+s3_prefix: ami-patcher-personal
+
+sns_topic_arn: null
+exceptions_file: exceptions.yaml
+min_free_disk_gb: 2
+
+phase_timeouts:
+  launch_seconds: 600
+  ssm_online_seconds: 900
+  command_seconds: 1200
+  dnf_update_seconds: 3600
+  reboot_seconds: 900
+  image_available_seconds: 1800
+
+max_total_runtime_minutes: 180
+keep_amis: 4
+project_tag: ami-patcher-personal
+bootstrap_ssm_agent: false
+root_volume_size_gb: null

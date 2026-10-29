@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ami-patcher"
+version = "0.1.0"
+description = "Unattended weekly patch and validation of a hardened AlmaLinux 9 golden AMI."
+requires-python = ">=3.11"
+dependencies = [
+    "boto3",
+    "PyYAML",
+    "filelock",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+ami-patcher = "ami_patcher.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-m 'not integration'"
+markers = [
+    "integration: real AWS calls; excluded unless pytest is run with -m integration",
+]

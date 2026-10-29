@@ -1,0 +1,11 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "UploadAmiPatcherReports",
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::ami-patcher-personal-469606549419-2026/ami-patcher-personal/*"
+    }
+  ]
+}

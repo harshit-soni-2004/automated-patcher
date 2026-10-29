@@ -1,0 +1,29 @@
+# Configuration with live account credentials
+config.yaml
+
+# Execution run artifacts
+202*T*
+reports/
+*.json
+!s3-upload-policy.json
+
+# Python cache & build
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.log
